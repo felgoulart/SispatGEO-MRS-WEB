@@ -1,0 +1,56 @@
+ .nav-text > li:first-child a, .nav-icons > li:first-child a {
+    padding-left: 8px;
+}
+
+.nav-text > li.active a, .nav-icons > li.active a {
+    color: #ffffff;
+    border-radius: 6px;
+    background-color: #4187C1;
+    padding: 8px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+}
+
+.nav-icons > li > a {
+    color: #ffffff;
+    border-radius: 6px;
+    background-color: #6c7e99;
+    padding: 8px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 10px;
+}
+
+.nav-text > li > a:hover, .nav-icons > li > a:hover {
+    background-color: #4187C185;
+}
+
+.card {
+    padding: 0px;
+}
+
+.icone-voltar {
+    color: #4a4545;
+    text-align: right;
+    font-size: 26px;
+    display: block;
+}
+
+.add-icon-table {
+    display: block;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.titulo-filtro {
+  width: "200px";
+  margin-bottom: "10px";
+  margin-right: "10px" ;
+}
+
+.form-visualiza {
+    border-radius: 4px;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    height: 20px;
+    color: black;
+    background-color: #f7f7f7;
+}

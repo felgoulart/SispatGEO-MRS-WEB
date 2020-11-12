@@ -1,0 +1,24 @@
+.nome-sistema{
+    text-align: left!important;
+    font-size: 26px!important;
+}
+
+.sidebar .logo-img img {
+    width: 35px;
+    top: 2px;
+    position: absolute;
+    left: 0px;
+}
+
+.navbar-brand-mod{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    vertical-align: middle;
+    width: 600px;
+}
+
+.navbar-brand-mod img {
+    width: 200px;
+    filter: brightness(0) invert(1);
+}

@@ -1,0 +1,12 @@
+.header-bp {
+    padding: 0px;
+    margin: 0px;
+    background-color: #ffffff;
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.header-bp  .control-label {
+    font-weight: 600;
+}
