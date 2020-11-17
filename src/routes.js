@@ -1,4 +1,4 @@
-import MapaGeo from 'views/MapaGeo.jsx'
+import MapaGeo from 'views/MapaGeo2.jsx'
 
 import DataTable_VP_F from './views/bp/vp/f/consulta_vp_f';
 import Cadastro_VP_F from './views/bp/vp/f/cadastro_vp_f';

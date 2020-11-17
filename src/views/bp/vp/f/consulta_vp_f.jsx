@@ -19,10 +19,6 @@ import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 import PhotoLibraryOutlinedIcon from '@material-ui/icons/PhotoLibraryOutlined';
 import AddBoxTwoToneIcon from '@material-ui/icons/AddBoxTwoTone';
 
-<<<<<<< HEAD:src/views/bp/vp/f/consulta_vp_f.jsx
-=======
-// import InputLabel from "@material-ui/core/InputLabel";
->>>>>>> d3b035ce942be984669b90ee0cb0827c468278ca:src/views/bp/im/b/consulta_im_b.jsx
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 
@@ -55,13 +51,8 @@ const extendedLocalization = {
   ...localization
 };
 
-<<<<<<< HEAD:src/views/bp/vp/f/consulta_vp_f.jsx
 function DataTable_VP_F() {
   const [filtro, setFiltro] = useState("T");
-=======
-function DataTable_IM_B() {
-  const [filtro, setFiltro] = useState("U");
->>>>>>> d3b035ce942be984669b90ee0cb0827c468278ca:src/views/bp/im/b/consulta_im_b.jsx
 
   const [bemPatrimonial, setBemPatrimonial] = useState([])
   const [loading, setLoading] = useState(false);
@@ -71,10 +62,9 @@ function DataTable_IM_B() {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    let mounted = true;
+    // let mounted = true;
     const tipo = filtro;
     const data = { tipo };
-<<<<<<< HEAD:src/views/bp/vp/f/consulta_vp_f.jsx
     //console.log('Filtro IMB: ', data);
     setLoading(true);
     api.patch('/faixadominio/filtro', data)
@@ -131,7 +121,7 @@ const columnsDominios = [
     },
   },
   {
-    field: "Versao", title: "Versão", hidden:true, hiddenByColumnsButton: true, 
+    field: "Versao", title: "Versão", hidden:true, hiddenByColumnsButton: true,
     cellStyle: {
       width: 5,
       maxWidth: 5
@@ -187,38 +177,6 @@ const columnsDominios = [
 
   return (
     <div style={{ maxWidth: '100vw' }}>
-=======
-    const loadData = async () => {
-      setLoading(true);
-      const res = await api.patch('/benfeitorias/filtro', data)
-      if (mounted) {
-        setBemPatrimonial(res.data);
-        setLoading(false);
-      };
-    };
-    loadData();
-
-    return () => mounted = false;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filtro]);
-
-  return (
-    <div style={{ maxWidth: '100vw' }}>
-      <FormControl style={styles.filterFormControl}>
-        {/* <InputLabel id="select-filter-label" style={{ fontSize: 20 }}>Filtro de Pesquisa</InputLabel> */}
-        <Select
-          labelId="select-filter-label"
-          id="select-filter"
-          value={filtro}
-          style={styles.filterSelect}
-          onChange={(e) => setFiltro(e.target.value)}
-        >
-          <MenuItem value={"T"}>Todas as versões</MenuItem>
-          <MenuItem value={"B"}>Baixados</MenuItem>
-          <MenuItem value={"U"}>Ultima versão</MenuItem>
-        </Select>
-      </FormControl>
->>>>>>> d3b035ce942be984669b90ee0cb0827c468278ca:src/views/bp/im/b/consulta_im_b.jsx
       <MaterialTable
         columns={columnsDominios}
         localization={extendedLocalization}

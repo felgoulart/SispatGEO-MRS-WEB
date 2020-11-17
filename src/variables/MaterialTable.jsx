@@ -348,77 +348,6 @@ const columnsVPF = [
       width: 5,
       maxWidth: 5
     },
-<<<<<<< HEAD
-=======
-    headerStyle: {
-      width: 5,
-      maxWidth: 5
-    }
-  },
-  { field: "MotivoVersao", title: "Motivo Versão",
-    cellStyle: {
-      width: 100,
-      maxWidth: 100
-    },
-  },
-  {
-    field: "TipoPropriedade", title: "Propriedade", lookup: Propriedade,
-    cellStyle: {
-      width: 40,
-      maxWidth: 40
-    },
-  },
-  {
-    field: "Corredor", title: "Corredor", lookup: Corredor,
-    cellStyle: {
-      width: 40,
-      maxWidth: 40
-    }, },
-  { field: "SituacaoOperacional", title: "Situação Operacional", lookup: Operacional,
-    cellStyle: {
-      width: 40,
-      maxWidth: 40
-    },},
-  { field: "LocalVistoria", title: "Local Vistoria", lookup: Vistoria,
-    cellStyle: {
-      width: 30,
-      maxWidth: 30
-    },
-    filterCellStyle: {
-      width: 90,
-      maxWidth: 350,
-      fontSize: 10
-    }
-  },
-  { field: "InicioValidade", title: "Inicio Validade", type: 'date',
-    cellStyle: {
-      width: 15,
-      maxWidth: 15
-    }
-  },
-  { field: "FimValidade", title: "Final Validade", type: 'date',
-    cellStyle: {
-      width: 15,
-      maxWidth: 15
-    },
-  },
-];
-
-const columnsGPV = [
-  {
-    field: "BP", title: "Bem Patrimonial",
-    cellStyle: {
-      width: 15,
-      maxWidth: 15
-    },
-  },
-  {
-    field: "Incorporacao", title: "Incorporação",
-    cellStyle: {
-      width: 15,
-      maxWidth: 15
-    },
->>>>>>> d3b035ce942be984669b90ee0cb0827c468278ca
   },
   {
     field: "Versao", title: "Versão",
@@ -431,47 +360,7 @@ const columnsGPV = [
       maxWidth: 5
     }
   },
-<<<<<<< HEAD
   { field: "Corredor", title: "Corredor", lookup: Corredor,
-=======
-  {
-    field: "MotivoVersao", title: "Motivo Versão",
-    cellStyle: {
-      width: 100,
-      maxWidth: 100
-    },
-  },
-  { field: "TipoPropriedade", title: "Propriedade", lookup: Propriedade },
-  { field: "Corredor", title: "Corredor", lookup: Corredor },
-  { field: "TipoVagao", title: "Tipo Vagão", lookup: Vagao },
-  { field: "LocalVistoria", title: "Local Vistoria", lookup: Vistoria },
-  {
-    field: "InicioValidade", title: "Inicio Validade", type: 'date',
-    cellStyle: {
-      width: 15,
-      maxWidth: 15
-    }
-  },
-  {
-    field: "FimValidade", title: "Final Validade", type: 'date',
-    cellStyle: {
-      width: 15,
-      maxWidth: 15
-    },
-  },
-];
-
-const columnsIMB = [
-  {
-    field: "BP", title: "Bem Patrimonial",
-    cellStyle: {
-      width: 15,
-      maxWidth: 15
-    },
-  },
-  {
-    field: "Incorporacao", title: "Incorporação",
->>>>>>> d3b035ce942be984669b90ee0cb0827c468278ca
     cellStyle: {
       width: 50,
       maxWidth: 50
@@ -486,21 +375,8 @@ const columnsIMB = [
   { field: "PosicaoKmIni",
     title: "Km Inicial",
   },
-<<<<<<< HEAD
   { field: "DistBoletoExtIniInvasao", title: "Boleto (<)",
     customFilterAndSearch: (term, rowData) => term >= rowData.DistBoletoExtIniInvasao
-=======
-  { field: "Corredor", title: "Corredor", lookup: Corredor },
-  { field: "Trecho", title: "Trecho", lookup: Trecho },
-  { field: "TipoImovel", title: "Tipo Imóvel", lookup: Imovel },
-  { field: "Utilizacao", title: "Utilização", lookup: Utilizacao },
-  {
-    field: "InicioValidade", title: "Inicio Validade", type: 'date',
-    cellStyle: {
-      width: 15,
-      maxWidth: 15
-    },
->>>>>>> d3b035ce942be984669b90ee0cb0827c468278ca
   },
   {
     field: "InicioValidade", title: "Inicio Validade", type: 'date',

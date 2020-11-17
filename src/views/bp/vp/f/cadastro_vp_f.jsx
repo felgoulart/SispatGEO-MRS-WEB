@@ -6,7 +6,7 @@ import Select from "react-select";
 import swal from 'sweetalert';
 import MapOutlinedIcon from '@material-ui/icons/MapOutlined';
 import { styles } from '../../../../variables/MaterialTable';
-import moment from 'moment';
+// import moment from 'moment';
 
 
 import {

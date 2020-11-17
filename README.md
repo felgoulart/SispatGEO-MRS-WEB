@@ -1,3 +1,3 @@
-# SispatGEO VLI (WEB)
+# SispatGEO MRS (WEB)
 
-Repositório do SispatGEO VLI.
+Repositório do SispatGEO MRS.
