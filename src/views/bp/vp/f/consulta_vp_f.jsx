@@ -205,11 +205,11 @@ const columnsDominios = [
             onClick: () => { }
           },
           rowData => ({
-            icon: () => <Link to={'/admin/bp/vp/f/visualiza/' + rowData.IDVersao}>{<AssignmentOutlinedIcon style={styles.iconTable} />}</Link>,
+            icon: () => <Link to={'/admin/bp/vp/f/visualiza/' + rowData.BP}>{<AssignmentOutlinedIcon style={styles.iconTable} />}</Link>,
             tooltip: 'Ver Detalhes',
           }),
           rowData => ({
-            icon: () => <Link to={'/map/mapa-geo'}>{<MapOutlinedIcon style={styles.iconTable} />}</Link>,
+            icon: () => <Link to={'/map/mapa-geo/'+ rowData.BP}>{<MapOutlinedIcon style={styles.iconTable} />}</Link>,
             tooltip: 'Mapa Georreferenciado',
           }),
           rowData => ({

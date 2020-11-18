@@ -140,8 +140,12 @@ function Visualiza_vp_f() {
 
     // var perfilUsuario = false
 
-    const routeEditar = () =>{ 
-      let path = `/admin/bp/vp/f/cadastro/${idBem2}`; 
+    const routeEditar = () =>{
+      let path = `/admin/bp/vp/f/cadastro/${idBem2}`;
+      history.push(path);
+    }
+    const routeMapaGeo = () =>{
+      let path = `/map/mapa-geo/${idBem2}`;
       history.push(path);
     }
 
@@ -583,7 +587,7 @@ function Visualiza_vp_f() {
               <Link bsClass="col-md-1" to="/admin/bp/vp/f/consulta/">
                 <i className="pe-7s-angle-left-circle icone-voltar"></i>
               </Link>
-            </Col> 
+            </Col>
           </Row>
         </div>
       )
@@ -630,6 +634,9 @@ function Visualiza_vp_f() {
         <Button bsStyle="primary" pullRight fill  onClick={routeEditar}>
           Editar
         </Button>
+        <Button bsStyle="primary" pullRight fill  onClick={routeMapaGeo}>
+          Mapa Geo
+        </Button>
           {/* <Link to={'/map/mapa-geo'}>{<MapOutlinedIcon style={styles.iconTable} />}</Link> */}
 
         <div className="clearfix" />
@@ -646,7 +653,7 @@ function Visualiza_vp_f() {
                 content={InputForm}
               />
             </Col>
-          </Row> 
+          </Row>
         </Grid>
       </div>
     );

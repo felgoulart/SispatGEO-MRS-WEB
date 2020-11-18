@@ -1,35 +1,36 @@
-import React, { useState, useLayoutEffect, useEffect }  from "react";
-import api from '../services/api';
-
-
-const baseURL = process.env.REACT_APP_BASE_URL;
-
-
-const styles = {
-  default: [],
-  hide: [
-    {
-      featureType: "poi",
-      elementType: "labels.icon",
-      stylers: [{ visibility: "off" }]
-    },
-    {
-      featureType: "transit",
-      elementType: "labels.icon",
-      stylers: [{ visibility: "off" }]
-    },
-    {
-      featureType: "transit.station.rail",
-      elementType: "labels.icon",
-      stylers: [{ visibility: "true" }]
-    },
-  ]
-};
+import React, {useEffect }  from "react";
+import {useParams} from 'react-router';
 
 
 
-function GoogleMaps(props) {
 
+// const styles = {
+//   default: [],
+//   hide: [
+//     {
+//       featureType: "poi",
+//       elementType: "labels.icon",
+//       stylers: [{ visibility: "off" }]
+//     },
+//     {
+//       featureType: "transit",
+//       elementType: "labels.icon",
+//       stylers: [{ visibility: "off" }]
+//     },
+//     {
+//       featureType: "transit.station.rail",
+//       elementType: "labels.icon",
+//       stylers: [{ visibility: "true" }]
+//     },
+//   ]
+// };
+
+
+
+function GoogleMaps() {
+	const {idBem2} = useParams();
+	// var idBem2 = 901179000
+  console.log('bp param', idBem2)
 
   useEffect(() => {
     renderMap()
@@ -41,39 +42,14 @@ function GoogleMaps(props) {
     window.InitMap = InitMap
   }
 
-
-  const [valorIDVersao, setValorIDVersao] = useState([]);
-  const [valorFicha, setValorFicha] = useState([]);
-
-
-  useEffect(() => {
-    api.get(`/faixadominio/ficha/${valorFicha}`, {
-
-    }).then(response => {
-
-      setValorIDVersao(response.data.IDVersao);
-
-      console.log(response.data.IDVersao)
-
-    })
-    // eslint-disable-next-line
-  }, [valorFicha])
-
-
-
-
-
-
-
-
   const InitMap = () => {
 
     var map = new window.google.maps.Map(document.getElementById('map'), {
       zoom: 18,
       center: { lat: -22.8059377, lng: -43.3884751 },
     });
-    // map.data.loadGeoJson("./15metros.geojson");
-    // map.data.loadGeoJson("./malha.geojson");
+    map.data.loadGeoJson("./malha.geojson");
+    map.data.loadGeoJson("./15metros.geojson");
     // map.data.loadGeoJson("./ALTERACAO_DA_MALHA.geojson");
     // map.data.loadGeoJson("./AREA_DE_RISCO.geojson");
     map.data.loadGeoJson("./COMERCIO.geojson");
@@ -124,7 +100,7 @@ function GoogleMaps(props) {
     // *** FIM DO DRONE ***
 
     const getPosition = function(feature) {
-      if (feature.getGeometry().getType() == 'Point') {
+      if (feature.getGeometry().getType() === 'Point') {
         var position = feature.getGeometry().get();
       } else {/* Others */
         var bounds = new window.google.maps.LatLngBounds();
@@ -146,21 +122,19 @@ function GoogleMaps(props) {
 
 
     map.data.addListener('click', ev => {
-      const f = ev.feature;
-      const tipo = f.getProperty('IDI');
-      const ficha = f.getProperty('N_FICHA');
-      const kminicial = f.getProperty('KM_INICIAL');
-      const kmfinal = f.getProperty('KM_FINAL');
-      const position = getPosition(f);
-
-      setValorFicha(ficha);
+      var f = ev.feature;
+      var tipo = f.getProperty('IDI');
+      var ficha = f.getProperty('N_FICHA');
+      var kminicial = f.getProperty('KM_INICIAL');
+      var kmfinal = f.getProperty('KM_FINAL');
+      var position = getPosition(f);
 
       infowindow.setContent(`<div>
                             <h5><b>Tipo da Ocupação: </b>${tipo}</h5>
                             <b>Número da Ficha: </b>${ficha}
                             <br/><b>KM Inicial: </b>${kminicial}
                             <br/><b>KM Final: </b>${kmfinal}</div>
-                            <b float:right><a href="#/admin/bp/vp/f/visualiza/${valorIDVersao}" style="float:right">Ver Ficha</a></b></br>
+                            <b float:right><a href="#/admin/bp/vp/f/visualiza/${ficha}" style="float:right">Ver Ficha</a></b></br>
                             `);
       // Hat tip geocodezip: http://stackoverflow.com/questions/23814197
       // infowindow.setPosition(f.getGeometry().getAt(0).getAt(0).getArray());
@@ -173,10 +147,52 @@ function GoogleMaps(props) {
     window.google.maps.event.trigger('click');
 
 
-  }
+    //POSICIONAR O SHAPE DE ACORDO COM O NUMERO DA FICHA
+
+  var lastBp = 0;
+	var highlightBP = function(feature, bpParameter) {
+    var bppFeature = '' + feature.getProperty('N_FICHA');
+		if (bppFeature == bpParameter) {
+      console.log('entrei no if')
+			var bounds = new window.google.maps.LatLngBounds();
+			feature.getGeometry().forEachLatLng(function(latlng) {
+				bounds.extend(latlng);
+      });
+      var offset = 0.0005;
+      var center = bounds.getCenter();
+      bounds.extend(new window.google.maps.LatLng(center.lat() + offset, center.lng() + offset));
+      bounds.extend(new window.google.maps.LatLng(center.lat() - offset, center.lng() - offset));
+			map.fitBounds(bounds);
+			var event = {};
+			event.feature = feature;
+
+			if(bppFeature !== lastBp) {
+				window.google.maps.event.trigger(map.data, 'click', event);
+			}
+
+      lastBp = bppFeature;
+      return;
+		}
+  };
+
+    window.google.maps.event.addListener(map.data, 'addfeature', function(event) {
+      // var bp = getParameter('bp');
+      var bp = idBem2
+      console.log('BP:', bp)
+      highlightBP(event.feature, bp);
+    });
+
+
+
+  // FIM DA BUSCA DA FICHA
+
+}
+
 
     return (
-        <div id="map"></div>
+        <div id="map">
+
+        </div>
     )
 
 }
