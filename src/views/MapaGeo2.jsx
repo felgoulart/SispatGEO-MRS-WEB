@@ -287,11 +287,36 @@ function GoogleMaps() {
     });
     window.google.maps.event.trigger('click');
 
+    geojesonLayerOcup_Residencia.addListener('click', ev => {
+      var f = ev.feature;
+      var trecho = f.getProperty('TRECHO');
+      var ficha = f.getProperty('N_FICHA');
+      var kminicial = f.getProperty('KM_INICIAL');
+      var position = getPosition(f);
+
+      infowindow.setContent(`<div>
+                            <h5><b>Tipo da Ocupação: </b>Comércio</h5>
+                            <b>Trecho: </b>${trecho}</br>
+                            <b>Número da Ficha: </b>${ficha}
+                            <br/><b>KM Inicial: </b>${kminicial}
+                            </div>
+                            <b float:right><a href="#/admin/bp/vp/f/visualiza/${ficha}" style="float:right">Ver Ficha</a></b></br>
+                            `);
+      infowindow.setPosition(position);
+      infowindow.setOptions({
+        pixelOffset: new window.google.maps.Size(0, -10)
+      });
+      infowindow.open(map);
+    });
+    window.google.maps.event.trigger('click');
+
 
     //POSICIONAR O SHAPE DE ACORDO COM O NUMERO DA FICHA
 
     var lastBp = 0;
     var highlightBP = function (feature, bpParameter) {
+      console.log('entrei na function')
+
       var bppFeature = '' + feature.getProperty('N_FICHA');
       if (bppFeature == bpParameter) {
         console.log('entrei no if')
@@ -316,12 +341,61 @@ function GoogleMaps() {
       }
     };
 
-    window.google.maps.event.addListener(map.data, 'addfeature', function (event) {
+        
+
+    window.google.maps.event.addListener(geojesonLayerOcup_Comercio, 'addfeature', function (event) {
       // var bp = getParameter('bp');
       if (lastBp == 0) {
         var bp = idBem2
         // console.log('BP:', bp)
         highlightBP(event.feature, bp);
+        var f = event.feature;
+        var trecho = f.getProperty('TRECHO');
+        var ficha = f.getProperty('N_FICHA');
+        var kminicial = f.getProperty('KM_INICIAL');
+        var position = getPosition(f);
+
+        infowindow.setContent(`<div>
+                              <h5><b>Tipo da Ocupação: </b>Comércio</h5>
+                              <b>Trecho: </b>${trecho}</br>
+                              <b>Número da Ficha: </b>${ficha}
+                              <br/><b>KM Inicial: </b>${kminicial}
+                              </div>
+                              <b float:right><a href="#/admin/bp/vp/f/visualiza/${ficha}" style="float:right">Ver Ficha</a></b></br>
+                              `);
+        infowindow.setPosition(position);
+        infowindow.setOptions({
+          pixelOffset: new window.google.maps.Size(0, -10)
+        });
+        infowindow.open(map);
+      }
+    });
+
+    window.google.maps.event.addListener(geojesonLayerOcup_Residencia, 'addfeature', function (event) {
+      // var bp = getParameter('bp');
+      if (lastBp == 0) {
+        var bp = idBem2
+        // console.log('BP:', bp)
+        highlightBP(event.feature, bp);
+        var f = event.feature;
+        var trecho = f.getProperty('TRECHO');
+        var ficha = f.getProperty('N_FICHA');
+        var kminicial = f.getProperty('KM_INICIAL');
+        var position = getPosition(f);
+
+        infowindow.setContent(`<div>
+                              <h5><b>Tipo da Ocupação: </b>Residência</h5>
+                              <b>Trecho: </b>${trecho}</br>
+                              <b>Número da Ficha: </b>${ficha}
+                              <br/><b>KM Inicial: </b>${kminicial}
+                              </div>
+                              <b float:right><a href="#/admin/bp/vp/f/visualiza/${ficha}" style="float:right">Ver Ficha</a></b></br>
+                              `);
+        infowindow.setPosition(position);
+        infowindow.setOptions({
+          pixelOffset: new window.google.maps.Size(0, -10)
+        });
+        infowindow.open(map);
       }
     });
 
@@ -416,12 +490,6 @@ function GoogleMaps() {
       map.fitBounds(bounds);
     });
 
-    // const buttonsDrone = (
-    //   <div id="floating-panel">
-    //     <Button onClick={removeFotosDrone}>Desativar</Button>
-    //   </div>
-    // )
-
     // Add controls to the map, allowing users to hide/show features.
     const styleControl = document.getElementById("style-selector-control");
     map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(styleControl);
@@ -433,10 +501,6 @@ function GoogleMaps() {
           featureType: "poi.business",
           stylers: [{ visibility: "off" }],
         },
-        // {
-        //   featureType: Polygon,
-        //   stylers: [{ visibility: "off" }],
-        // },
         {
           featureType: "transit",
           elementType: "labels.icon",
@@ -539,18 +603,7 @@ function GoogleMaps() {
     </div>
       <div id="map"></div>
     </div>
-    // <div>
-    //   <div id="pac-input2">
-    //     <input
-    //     id="pac-input"
-    //     class="controls"
-    //     type="text"
-    //     placeholder="Search Box"
-    //     />
-    //   </div>
-    //   <div id="map">
-    //   </div>
-    // </div>
+
   )
 
 }
