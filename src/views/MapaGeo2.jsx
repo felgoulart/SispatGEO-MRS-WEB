@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router';
 import Checkbox from 'components/CustomCheckbox/CustomCheckbox.jsx';
+import {Badge} from 'react-bootstrap'
 
 import './styles.css'
 // import Card from "components/Card/Card.jsx";
@@ -36,6 +37,7 @@ import './styles.css'
 
 function GoogleMaps() {
   const { idBem2 } = useParams();
+  const { tipoInvasao } = useParams();
   // var idBem2 = 901179000
   // console.log('bp param', idBem2)
 
@@ -341,11 +343,10 @@ function GoogleMaps() {
       }
     };
 
-        
 
     window.google.maps.event.addListener(geojesonLayerOcup_Comercio, 'addfeature', function (event) {
       // var bp = getParameter('bp');
-      if (lastBp == 0) {
+      if (lastBp == 0 && tipoInvasao == 'CMR') {
         var bp = idBem2
         // console.log('BP:', bp)
         highlightBP(event.feature, bp);
@@ -373,7 +374,7 @@ function GoogleMaps() {
 
     window.google.maps.event.addListener(geojesonLayerOcup_Residencia, 'addfeature', function (event) {
       // var bp = getParameter('bp');
-      if (lastBp == 0) {
+      if (lastBp == 0 && tipoInvasao =='RSD') {
         var bp = idBem2
         // console.log('BP:', bp)
         highlightBP(event.feature, bp);
@@ -527,82 +528,108 @@ function GoogleMaps() {
   return (
     <div>
       <div id="style-selector-control" class="map-control">
-      <label for="show-faixa15">Via Permanente</label>
-      <Checkbox
-        isChecked
-        number="malha"
-        label="Malha Ferroviária"
-      />
-      <Checkbox
-        isChecked
-        number="faixa15"
-        label="Faixa de 15 metros"
-      />
-      <Checkbox
-        isChecked
-        number="faixa_doc"
-        label="Faixa Documental"
-      />
-      <Checkbox
-        isChecked
-        number="faixaProp"
-        label="Faixa Proposta"
-      />
-      <label>Ocupações</label>
-      <Checkbox
-        isChecked
-        number="ocup_alteracao_da_malha"
-        label="Alteração da Malha"
-      />
-      <Checkbox
-        isChecked
-        number="ocup_area_de_risco"
-        label="Área de Risco"
-      />
-      <Checkbox
-        isChecked
-        number="ocup_comercio"
-        label="Comércio"
-      />
-      <Checkbox
-        isChecked
-        number="ocup_orgao_publico"
-        label="Orgão Público"
-      />
-      <Checkbox
-        isChecked
-        number="ocup_outros"
-        label="Outros"
-      />
-      <Checkbox
-        isChecked
-        number="ocup_residencia"
-        label="Residência"
-      />
-      <Checkbox
-        isChecked
-        number="ocup_sem_acesso"
-        label="Sem Acesso"
-      />
-      <Checkbox
-        isChecked
-        number="ocup_terreno_cercado"
-        label="Terreno Cercado"
-      />
-      <Checkbox
-        isChecked
-        number="ocup_via_publica"
-        label="Via Pública"
-      />
-      <label>Outros</label>
-      <Checkbox
-        isChecked
-        number="poi"
-        label="Pontos de Interesse"
-      />
-    </div>
+        <label for="show-faixa15">Via Permanente</label>
+        <div class="CorMalhaFerroviaria">
+          <Checkbox
+            isChecked
+            number="malha"
+            label="Malha Ferroviária"
+          />
+        </div>
+        <div class="colorFaixa15">
+          <Checkbox
+            isChecked
+            number="faixa15"
+            label="Faixa de 15 metros"
+          />
+        </div>
+        <div class="colorFaixaDoc">
+          <Checkbox
+            isChecked
+            number="faixa_doc"
+            label="Faixa Documental"
+          />
+        </div>
+        <div class="colorFaixaProp">
+          <Checkbox
+            isChecked
+            number="faixaProp"
+            label="Faixa Proposta"
+          />
+        </div>
+        <label>Ocupações</label>
+        <div class="colorAlteracaoMalha">
+          <Checkbox
+            isChecked
+            number="ocup_alteracao_da_malha"
+            label="Alteração da Malha"
+          />
+        </div>
+        <div class="colorAreaRisco">
+          <Checkbox
+            isChecked
+            number="ocup_area_de_risco"
+            label="Área de Risco"
+          />
+        </div>
+        <div class="colorComercio">
+          <Checkbox
+            isChecked
+            number="ocup_comercio"
+            label="Comércio"
+          />
+        </div>
+        <div class="colorOrgaoPublico">
+          <Checkbox
+            isChecked
+            number="ocup_orgao_publico"
+            label="Orgão Público"
+          />
+        </div>
+        <div class="colorOutros">
+          <Checkbox
+            isChecked
+            number="ocup_outros"
+            label="Outros"
+          />
+        </div>
+        <div class="colorResidencia">
+          <Checkbox
+            isChecked
+            number="ocup_residencia"
+            label="Residência"
+          />
+        </div>
+        <div class="colorSemAcesso">
+          <Checkbox
+            isChecked
+            number="ocup_sem_acesso"
+            label="Sem Acesso"
+          />
+        </div>
+        <div class="colorTerrenoCercado">
+          <Checkbox
+            isChecked
+            number="ocup_terreno_cercado"
+            label="Terreno Cercado"
+          />
+        </div>
+        <div class="colorViaPublica">
+          <Checkbox
+            isChecked
+            number="ocup_via_publica"
+            label="Via Pública"
+          />
+        </div>
+        <label>Outros</label>
+        <Checkbox
+          isChecked
+          number="poi"
+          label="Pontos de Interesse"
+        />
+      </div>
       <div id="map"></div>
-    </div>
+  </div>
 
   )
 

@@ -7,7 +7,7 @@ import Visualiza_VP_F from './views/bp/vp/f/visualiza_vp_f';
 
 var routes = [
   {
-    path: '/mapa-geo/:idBem2',
+    path: '/mapa-geo/:idBem2/:tipoInvasao',
     layout: '/map',
     name: 'Mapa Geo',
     icon: 'fa fa-map',

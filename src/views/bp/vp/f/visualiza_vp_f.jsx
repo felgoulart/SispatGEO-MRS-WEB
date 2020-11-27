@@ -54,6 +54,7 @@ function Visualiza_vp_f() {
 	const [valorPassNivel, setValorPassNivel] = useState([]);  // SNNID
 	const [valorPassPedestre, setValorPassPedestre] = useState([]);  // SNNID
 	const [valorTipoInvasao, setValorTipoInvasao] = useState([]);  // TPIVS
+	const [valorCodTipoInvasao, setValorCodTipoInvasao] = useState([]);  // TPIVS
 	const [valorDistBoletoExtIniInvasao, setValorDistBoletoExtIniInvasao] = useState([]);
 	const [valorAreaTotal, setValorAreaTotal] = useState([]);
 	const [valorAreaEdificada, setValorAreaEdificada] = useState([]);
@@ -120,6 +121,7 @@ function Visualiza_vp_f() {
 	setValorPassNivel(response.data.PassNivel);  // SNNID
 	setValorPassPedestre(response.data.PassPedestre);  // SNNID
 	setValorTipoInvasao(response.data.TipoInvasao);  // TPIVS
+	setValorCodTipoInvasao(response.data.CodTipoInvasao);  // TPIVS
 	setValorGaragem(response.data.Garagem);  // SNNID
 	setValorTipoEstrutura(response.data.TipoEstrutura);  // TIPES
 	setValorTipoCobertura(response.data.TipoCobertura);  // TPCOB
@@ -145,7 +147,7 @@ function Visualiza_vp_f() {
       history.push(path);
     }
     const routeMapaGeo = () =>{
-      let path = `/map/mapa-geo/${idBem2}`;
+      let path = `/map/mapa-geo/${idBem2}/${valorCodTipoInvasao}`;
       history.push(path);
     }
 

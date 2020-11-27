@@ -49,3 +49,106 @@ body {
   line-height: 30px;
   vertical-align: baseline;
 }
+
+
+.box {
+  shape-outside: polygon(10px);
+  background-color: blue;
+  height: 2vh;
+  width: calc(2vh + 2vh/4);
+  border: solid 1px;
+}
+
+.colorMalha {
+  background-color: black;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+
+.colorFaixaDoc {
+  background-color: #ff5400;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorFaixa15 {
+  background-color: #55007d;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorFaixaProp {
+  background-color: #33f544;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorAlteracaoMalha {
+  background-color: #bbfcb8;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorAreaRisco {
+  background-color: #686868;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorComercio  {
+  background-color: #00ffff;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorOrgaoPublico {
+  background-color: #730000;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorOutros {
+  background-color: #ff00ff;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorResidencia {
+  background-color: #0055ff;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorSemAcesso {
+  background-color: #ff00ff;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorViaPublica {
+  background-color: #ff0000;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+.colorTerrenoCercado {
+  background-color: #ffff00;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+}
+
