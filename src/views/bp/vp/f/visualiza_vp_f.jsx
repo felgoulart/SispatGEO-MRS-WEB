@@ -24,7 +24,7 @@ import Button from "components/CustomButton/CustomButton.jsx";
 import TableDocsDesFotos from '../../../Components/TablesImagens/index';
 
 function Visualiza_vp_f() {
-	const {idBem2, IDVersao} = useParams();
+	const {idBem2} = useParams();
 	const [valorBP, setValorBP] = useState([]);
 	// const [valorIncorporacao, setValorIncorporacao] = useState([]);
 	const [valorInicioValidade, setValorInicioValidade] = useState([]);
@@ -34,7 +34,7 @@ function Visualiza_vp_f() {
 	// const [valorMotivoVersao, setValorMotivoVersao] = useState([]);
 	const [valorVersao, setValorVersao] = useState([]);
 	// const [valorQtdeFotos, setValorQtdeFotos] = useState([]);
-	// const [valorIDVersao, setValorIDVersao] = useState([]);
+	const [valorIDVersao, setValorIDVersao] = useState([]);
 	const [valorFacilRemocao, setValorFacilRemocao] = useState([]);  // FAREM
 	const [valorCorredor, setValorCorredor] = useState([]);  // CDCRR
 	const [valorTpPosOcupacao, setValorTpPosOcupacao] = useState([]);  // TPPOC
@@ -92,7 +92,7 @@ function Visualiza_vp_f() {
 	// setValorMotivoVersao(response.data.MotivoVersao);
 	setValorVersao(response.data.Versao);
 	// setValorQtdeFotos(response.data.QtdeFotos);
-	// setValorIDVersao(response.data.IDVersao);
+	setValorIDVersao(response.data.IDVersao);
 	setValorPrincipalAcesso(response.data.PrincipalAcesso);
 	setValorEndereco(response.data.Endereco);
 	setValorComplemento(response.data.Complemento);
@@ -149,7 +149,7 @@ function Visualiza_vp_f() {
 
 
     const routeEditar = () =>{
-      let path = `/admin/bp/vp/f/cadastro/${idBem2}/${IDVersao}`;
+      let path = `/admin/bp/vp/f/cadastro/${idBem2}/${valorIDVersao}`;
       history.push(path);
     }
     const routeMapaGeo = () =>{

@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useParams } from 'react-router';
 import Checkbox from 'components/CustomCheckbox/CustomCheckbox.jsx';
 import './styles.css';
+// import api from '../services/api';
+
+
 
 
 
@@ -13,6 +16,15 @@ function GoogleMaps() {
     renderMap()
       // eslint-disable-next-line
   }, [])
+
+  // const [valorIDVersao, setValorIDVersao] = useState('')
+  // const [valorNumFicha, setValorNumFicha] = useState('')
+
+  //   useEffect(() => {
+  //     api.get(`/faixadominio/ficha/${valorNumFicha}`)
+  //     .then(response => {setValorIDVersao(response.data.IDVersao)})
+
+  //   }, [valorNumFicha])
 
   const GMAP_API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
@@ -234,6 +246,9 @@ function GoogleMaps() {
     var infowindow = new window.google.maps.InfoWindow({
       content: " "
     });
+
+
+
 
 
     geojesonLayerOcup_comercio.addListener('click', ev => {

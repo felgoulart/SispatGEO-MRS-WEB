@@ -44,7 +44,7 @@ var routes = [
         invisible: true
       },
       {
-        path: '/bp/vp/f/visualiza/:idBem2/:IDVersao',
+        path: '/bp/vp/f/visualiza/:idBem2',
         layout: '/admin',
         name: 'Ocupações',
         mini: 'OC',
