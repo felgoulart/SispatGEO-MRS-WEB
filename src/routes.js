@@ -28,7 +28,7 @@ var routes = [
         component: DataTable_VP_F
       },
       {
-        path: '/bp/vp/f/cadastro/:idBem2',
+        path: '/bp/vp/f/cadastro/:idBem2/:IDVersao',
         layout: '/admin',
         name: 'Ocupações',
         mini: 'OC',
@@ -36,7 +36,7 @@ var routes = [
         invisible: true
       },
       {
-        path: '/bp/vp/f/visualiza/:idBem2',
+        path: '/bp/vp/f/visualiza/:idBem2/:IDVersao',
         layout: '/admin',
         name: 'Ocupações',
         mini: 'OC',

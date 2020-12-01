@@ -30,7 +30,7 @@ function Carousel_X() {
   useEffect(() => {
     api.get(`/fotografias/${sessionStorage.getItem('@sispatgeo-app/idversao')}`)
       .then(res => {
-        // console.log('Num fotos: ', res.data.length);
+        // // console.log('Num fotos: ', res.data.length);
         if (res.data.length > 0) {
           setItemImage(res.data.map(x => x.Nome));
         } else {

@@ -1,29 +1,16 @@
 #map {
-  height: 100%;
+  height: 90%;
   position: absolute;
 }
 
 /* Optional: Makes the sample page fill the window. */
-html,
+/* html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
+} */
 
-#floating-panel {
-  position: absolute;
-  top: 70px;
-  left: 25%;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #999;
-  text-align: center;
-  font-family: "Roboto", "sans-serif";
-  line-height: 30px;
-  padding-left: 10px;
-}
 
 .map-control {
   background-color: #fff;
@@ -32,11 +19,12 @@ body {
   font-family: "Roboto", "sans-serif";
   margin: 10px;
   padding: 10px;
+  z-index: 1!important;
   /* Hide the control initially, to prevent it from appearing
            before the map loads. */
   display: none;
-  left: 86.8%!important;
-  top: 7%!important;
+  left: 85.8%!important;
+  /* top: 7%!important; */
 }
 
 /* Display the control once it is inside the map. */
@@ -51,104 +39,55 @@ body {
 }
 
 
-.box {
-  shape-outside: polygon(10px);
-  background-color: blue;
-  height: 2vh;
-  width: calc(2vh + 2vh/4);
-  border: solid 1px;
-}
-
 .colorMalha {
-  background-color: black;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
   border-color: black;
-  color: white;
 }
 
 .colorFaixaDoc {
-  background-color: #ff5400;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #ff5400;
 }
 .colorFaixa15 {
-  background-color: #55007d;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #55007d;
 }
 .colorFaixaProp {
-  background-color: #33f544;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #33f544;
 }
 .colorAlteracaoMalha {
-  background-color: #bbfcb8;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #bbfcb8;
 }
 .colorAreaRisco {
-  background-color: #686868;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #686868;
 }
 .colorComercio  {
-  background-color: #00ffff;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #00ffff;
 }
 .colorOrgaoPublico {
-  background-color: #730000;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #730000;
 }
 .colorOutros {
-  background-color: #ff00ff;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #ff00ff;
 }
 .colorResidencia {
-  background-color: #0055ff;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #0055ff;
 }
 .colorSemAcesso {
-  background-color: #ff00ff;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #bed2ff;
 }
 .colorViaPublica {
-  background-color: #ff0000;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #ff0000;
 }
 .colorTerrenoCercado {
-  background-color: #ffff00;
-  padding: 0 5px 0 5px;
-  border-radius: 5px;
-  border-color: black;
-  color: white;
+  border-color: #ffff00;
+}
+.colorDesapropriacao {
+  border-color: #07f4b5;
 }
 
+.borderColor {
+  padding-right: 10px;
+  border-style: solid;
+  border-width: 7px;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+}

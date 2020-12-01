@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, } from "react-bootstrap";
+import moment from 'moment';
+
 
 import FormInputs from "components/FormInputs/FormInputs.jsx";
 import 'moment/locale/pt-br';
@@ -48,7 +50,7 @@ function HeaderBP(props) {
                 bsClass: "form-control",
                 placeholder: "",
                 disabled: true,
-                defaultValue: props.defaultValueInicioValidade,
+                defaultValue: moment(props.defaultValueInicioValidade).format('DD/MM/YYYY')
               },
 
               {
@@ -57,7 +59,7 @@ function HeaderBP(props) {
                 bsClass: "form-control",
                 placeholder: "",
                 disabled: true,
-                defaultValue: props.defaultValueFimValidade,
+                defaultValue: moment(props.defaultValueFimValidade).format('DD/MM/YYYY')
               }
             ]}
           />

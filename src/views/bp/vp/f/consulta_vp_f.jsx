@@ -65,7 +65,7 @@ function DataTable_VP_F() {
     // let mounted = true;
     const tipo = filtro;
     const data = { tipo };
-    //console.log('Filtro IMB: ', data);
+    //// console.log('Filtro IMB: ', data);
     setLoading(true);
     api.patch('/faixadominio/filtro', data)
       .then(res => {
@@ -205,7 +205,7 @@ const columnsDominios = [
             onClick: () => { }
           },
           rowData => ({
-            icon: () => <Link to={'/admin/bp/vp/f/visualiza/' + rowData.BP }>{<AssignmentOutlinedIcon style={styles.iconTable} />}</Link>,
+            icon: () => <Link to={'/admin/bp/vp/f/visualiza/' + rowData.BP + '/' + rowData.IDVersao }>{<AssignmentOutlinedIcon style={styles.iconTable} />}</Link>,
             tooltip: 'Ver Detalhes',
           }),
           rowData => ({

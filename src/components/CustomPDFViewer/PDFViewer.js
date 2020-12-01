@@ -6,7 +6,7 @@ const baseURL = process.env.REACT_APP_BASE_URL;
 
 // const id = 9059;
 const id = sessionStorage.getItem('@sispatgeo-app/iddoc');
-console.log('Session Storage PDFViewer: ', id);
+// console.log('Session Storage PDFViewer: ', id);
 
 function PDFViewer_X() {
   // const { id } = useParams();
@@ -16,7 +16,7 @@ function PDFViewer_X() {
       type: 'application/pdf'
     })
       .then(res => {
-        // console.log("Resultado: ", res.data);
+        // // console.log("Resultado: ", res.data);
         const file = res.data.map(x => x.Nome);
         const fileURL = `${baseURL}/uploads/documents/${file}`;
         window.open(fileURL);

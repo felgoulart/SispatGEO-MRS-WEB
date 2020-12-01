@@ -18,7 +18,7 @@ const baseURL = process.env.REACT_APP_BASE_URL;
 
 //const malha_vli = 'https://www.dropbox.com/s/99eufwwt4kj1z3p/MALHA_VLI_COMPLETO.kml?dl=0';
 
-//console.log('malha vli: ', malha_vli);
+//// console.log('malha vli: ', malha_vli);
 
 const styles = {
   default: [],
@@ -122,9 +122,9 @@ class GoogleMaps extends Component {
     const fetchUserEmail = async () => {
       // const response = await fetch(baseURL+`/faixadominio/ficha/${ficha}`);
       const response = await fetch(baseURL+`/faixadominio/ficha/601184800`);
-      // console.log(response.json())
+      // // console.log(response.json())
       const { IDVersao } = await response.json();
-      // console.log(IDVersao)
+      // // console.log(IDVersao)
       this.setState({
         IDVersao
       });
@@ -225,7 +225,7 @@ class GoogleMaps extends Component {
       //     .then(function(response){
       //       response.json().then(function(data){
       //         setIDVersao = data.IDVersao;
-      //         console.log(getIDVersao);
+      //         // console.log(getIDVersao);
       //         return setIDVersao
       //         });
       //       })
@@ -234,15 +234,15 @@ class GoogleMaps extends Component {
       //                       });
       //                     }
 
-      // // console.log('getidversao2: ',getIDVersao)
-      // console.log('setidversao2: ',setIDVersao)
+      // // // console.log('getidversao2: ',getIDVersao)
+      // // console.log('setidversao2: ',setIDVersao)
 
 
 
 
 
 
-      console.log(this.IDVersao)
+      // console.log(this.IDVersao)
 
 
       // const fetch = require('node-fetch');
@@ -257,12 +257,12 @@ class GoogleMaps extends Component {
       //   .then(versao => versao.IDVersao);
 
 
-      // console.log(setIDVersao)
+      // // console.log(setIDVersao)
 
       // let myVal; // undefined until myAsyncFunc is called
 
       // const myAsyncFunc = (result) => {
-      //    console.log(result);
+      //    // console.log(result);
       //    myVal = result;
       //    setIDVersao = myVal;
 
@@ -271,10 +271,10 @@ class GoogleMaps extends Component {
 
       // getIDVersao().then(myAsyncFunc); // async call of myAsyncFunc
 
-      // // console.log(myVal);
+      // // // console.log(myVal);
 
 
-      // console.log(myVal)
+      // // console.log(myVal)
 
 
       // (async () => {
@@ -288,7 +288,7 @@ class GoogleMaps extends Component {
 
       //             })();
 
-      //             console.log(data2)
+      //             // console.log(data2)
 
       infowindow.setContent(`<div>
                             <h5><b>Tipo da Ocupação: </b>${tipo}</h5>

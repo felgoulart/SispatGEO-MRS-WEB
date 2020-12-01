@@ -43,7 +43,7 @@ import Button from "components/CustomButton/CustomButton.jsx";
 import TableDocsDesFotos from '../../../Components/TablesImagens/index';
 
 function Cadastro_vp_f() {
-	const {idBem2} = useParams();
+	const {idBem2, IDVersao} = useParams();
 	const [valorBP, setValorBP] = useState([]);
 	const [valorIncorporacao, setValorIncorporacao] = useState([]);
 	const [valorInicioValidade, setValorInicioValidade] = useState([]);
@@ -173,9 +173,10 @@ function Cadastro_vp_f() {
     async function handleCadastrar(e) {
       e.preventDefault();
 
-    const tipo = 'vp'
-    const subtipo = 'f'
-	  const pipe = '|'
+    const tipo = 'VP'
+    const subtipo = 'F'
+    const pipe = '|'
+    const valorLogin = 'Administrator'
 
     const colunas = 'BP+pipe+Incorporacao+pipe+InicioValidade+pipe+pipe+Login+pipe+FacilRemocao+pipe+Corredor+pipe+TpPosOcupacao+pipe+PrincipalAcesso+pipe+SiglaPatio+pipe+SiglaPatioPrx+pipe+Endereco+pipe+Complemento+pipe+Bairro+pipe+Municipio+pipe+UF+pipe+Zona+pipe+Coordenadas+pipe+PosicaoKmIni+pipe+PosicaoKmFim+pipe+PosicaoKmIniHistorico+pipe+PosicaoKmFimHistorico+pipe+PassNivel+pipe+PassPedestre+pipe+TipoInvasao+pipe+DistBoletoExtIniInvasao+pipe+AreaTotal+pipe+AreaEdificada+pipe+AreaNaoEdificada+pipe+Largura+pipe+Extensao+pipe+AnoConstrucao+pipe+Garagem+pipe+TipoEstrutura+pipe+TipoCobertura+pipe+RevInternoParedes+pipe+InstEletrica+pipe+IlumPublica+pipe+InstHidraulica+pipe+DescEsgoto+pipe+LixoResiduos+pipe+SegPublica+pipe+TpVAcesso+pipe+VAcessoFLFerrea+pipe+Observacoes'
 
@@ -188,7 +189,7 @@ function Cadastro_vp_f() {
           colunas,
           valores,
       };
-      console.log(valores)
+      // console.log(valores)
       try {
         const response = await api.post('faixadominio', data);
 
@@ -216,16 +217,16 @@ function Cadastro_vp_f() {
     async function handleCorrigir(e) {
       e.preventDefault();
 
-    const idversao = idBem2
+    const idversao = IDVersao
     const tipo = 'VP'
     const subtipo = 'F'
     const pipe = '|'
 
-    const colunas = 'BP|Incorporacao|InicioValidade|Login|FacilRemocao|Corredor|TpPosOcupacao|PrincipalAcesso|SiglaPatio|SiglaPatioPrx|Endereco|Complemento|Bairro|Municipio|UF|Zona|Coordenadas|PosicaoKmIni|PosicaoKmFim|PosicaoKmIniHistorico|PosicaoKmFimHistorico|PassNivel|PassPedestre|TipoInvasao|DistBoletoExtIniInvasao|AreaTotal|AreaEdificada|AreaNaoEdificada|Largura|Extensao|AnoConstrucao|Garagem|TipoEstrutura|TipoCobertura|RevInternoParedes|InstEletrica|IlumPublica|InstHidraulica|DescEsgoto|LixoResiduos|SegPublica|TpVAcesso|VAcessoFLFerrea|Observacoes'
+    const colunas = 'BP|Incorporacao|Login|FacilRemocao|Corredor|TpPosOcupacao|PrincipalAcesso|SiglaPatio|SiglaPatioPrx|Endereco|Complemento|Bairro|Municipio|UF|Zona|Coordenadas|PosicaoKmIni|PosicaoKmFim|PosicaoKmIniHistorico|PosicaoKmFimHistorico|PassNivel|PassPedestre|TipoInvasao|DistBoletoExtIniInvasao|AreaTotal|AreaEdificada|AreaNaoEdificada|Largura|Extensao|AnoConstrucao|Garagem|TipoEstrutura|TipoCobertura|RevInternoParedes|InstEletrica|IlumPublica|InstHidraulica|DescEsgoto|LixoResiduos|SegPublica|TpVAcesso|VAcessoFLFerrea|Observacoes'
 
-    const valores = valorBP+pipe+valorIncorporacao+pipe+valorInicioValidade+pipe+valorLogin+pipe+valorFacilRemocao.value+pipe+valorCorredor.value+pipe+valorTpPosOcupacao.value+pipe+valorPrincipalAcesso+pipe+valorSiglaPatio.value+pipe+valorSiglaPatioPrx.value+pipe+valorEndereco+pipe+valorComplemento+pipe+valorBairro+pipe+valorMunicipio.value+pipe+valorUF.value+pipe+valorZona.value+pipe+valorCoordenadas+pipe+valorPosicaoKmIni+pipe+valorPosicaoKmFim+pipe+valorPosicaoKmIniHistorico+pipe+valorPosicaoKmFimHistorico+pipe+valorPassNivel.value+pipe+valorPassPedestre.value+pipe+valorTipoInvasao.value+pipe+valorDistBoletoExtIniInvasao+pipe+valorAreaTotal+pipe+valorAreaEdificada+pipe+valorAreaNaoEdificada+pipe+valorLargura+pipe+valorExtensao+pipe+valorAnoConstrucao+pipe+valorGaragem.value+pipe+valorTipoEstrutura.value+pipe+valorTipoCobertura.value+pipe+valorRevInternoParedes.value+pipe+valorInstEletrica.value+pipe+valorIlumPublica.value+pipe+valorInstHidraulica.value+pipe+valorDescEsgoto.value+pipe+valorLixoResiduos.value+pipe+valorSegPublica.value+pipe+valorTpVAcesso.value+pipe+valorAcessoFLFerrea.value+pipe+valorObservacoes
+    const valores = valorBP+pipe+valorIncorporacao+pipe+valorLogin+pipe+valorFacilRemocao.value+pipe+valorCorredor.value+pipe+valorTpPosOcupacao.value+pipe+valorPrincipalAcesso+pipe+valorSiglaPatio.value+pipe+valorSiglaPatioPrx.value+pipe+valorEndereco+pipe+valorComplemento+pipe+valorBairro+pipe+valorMunicipio.value+pipe+valorUF.value+pipe+valorZona.value+pipe+valorCoordenadas+pipe+valorPosicaoKmIni+pipe+valorPosicaoKmFim+pipe+valorPosicaoKmIniHistorico+pipe+valorPosicaoKmFimHistorico+pipe+valorPassNivel.value+pipe+valorPassPedestre.value+pipe+valorTipoInvasao.value+pipe+valorDistBoletoExtIniInvasao+pipe+valorAreaTotal+pipe+valorAreaEdificada+pipe+valorAreaNaoEdificada+pipe+valorLargura+pipe+valorExtensao+pipe+valorAnoConstrucao+pipe+valorGaragem.value+pipe+valorTipoEstrutura.value+pipe+valorTipoCobertura.value+pipe+valorRevInternoParedes.value+pipe+valorInstEletrica.value+pipe+valorIlumPublica.value+pipe+valorInstHidraulica.value+pipe+valorDescEsgoto.value+pipe+valorLixoResiduos.value+pipe+valorSegPublica.value+pipe+valorTpVAcesso.value+pipe+valorAcessoFLFerrea.value+pipe+valorObservacoes
 
-    console.log(valores)
+    // console.log(valores)
 
     const data = {
           idversao,
@@ -234,7 +235,7 @@ function Cadastro_vp_f() {
           colunas,
           valores,
       };
-      console.log(data)
+      // console.log(data)
       try {
         const response = await api.patch('faixadominio', data);
 
@@ -278,7 +279,7 @@ function Cadastro_vp_f() {
           colunas,
           valores,
       };
-    console.log(data)
+    // console.log(data)
 
       try {
           const response = await api.put('faixadominio', data);
@@ -321,7 +322,7 @@ function Cadastro_vp_f() {
       };
       try {
         const response = await api.patch('faixadominio/baixa', data);
-        console.log('response ok')
+        // console.log('response ok')
 
         if (response.data[0].RC === 0) {
           swal({

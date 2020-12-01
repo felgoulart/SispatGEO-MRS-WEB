@@ -23,7 +23,7 @@ import Button from "components/CustomButton/CustomButton.jsx";
 import TableDocsDesFotos from '../../../Components/TablesImagens/index';
 
 function Visualiza_vp_f() {
-	const {idBem2} = useParams();
+	const {idBem2, IDVersao} = useParams();
 	const [valorBP, setValorBP] = useState([]);
 	// const [valorIncorporacao, setValorIncorporacao] = useState([]);
 	const [valorInicioValidade, setValorInicioValidade] = useState([]);
@@ -143,7 +143,7 @@ function Visualiza_vp_f() {
     // var perfilUsuario = false
 
     const routeEditar = () =>{
-      let path = `/admin/bp/vp/f/cadastro/${idBem2}`;
+      let path = `/admin/bp/vp/f/cadastro/${idBem2}/${IDVersao}`;
       history.push(path);
     }
     const routeMapaGeo = () =>{
