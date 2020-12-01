@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
+import {  useHistory } from 'react-router-dom';
+
 import {
   FormGroup,
   ControlLabel,
@@ -11,26 +13,33 @@ import Button from "components/CustomButton/CustomButton.jsx";
 
 import './LoginPage.css';
 
-class LoginPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cardHidden: true
-    };
+function LoginPage() {
+
+  const [valorUsuario, setValorUsuario] = useState([]);
+  const [valorSenha, setValorSenha] = useState([]);
+  const history = useHistory();
+
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    try {
+
+      if ( valorUsuario === 'admin' && valorSenha === 'adm123') {
+        history.push("/map/mapa-geo");
+        sessionStorage.setItem('@sispatgeo-app/usuario', 'admin');
+      } else if ( valorUsuario === 'consulta' && valorSenha === 'con012')  {
+        history.push("/map/mapa-geo");
+        sessionStorage.setItem('@sispatgeo-app/usuario', 'consulta');
+      } else alert('Usuário ou senha incorreto!')
+
+    } catch (err) {
+      alert('Erro no processamento, tente novamente.')
+    }
   }
-  componentDidMount() {
-    setTimeout(
-      function() {
-        this.setState({ cardHidden: false });
-      }.bind(this),
-      700
-    );
-  }
-  render() {
     return (
             <form>
               <Card
-                hidden={this.state.cardHidden}
                 textCenter
                 title="SispatGEO 3.0"
                 category="Login"
@@ -38,16 +47,16 @@ class LoginPage extends Component {
                   <div >
                     <FormGroup>
                       <ControlLabel>Usuário</ControlLabel>
-                    <FormControl placeholder="Digite o usuário" type="email" />
+                    <FormControl placeholder="Usuário" type="email" onChange={e => setValorUsuario(e.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                       <ControlLabel>Senha</ControlLabel>
-                      <FormControl placeholder="Senha" type="password" autoComplete="off"/>
+                      <FormControl placeholder="Senha" type="password" autoComplete="off" onChange={e => setValorSenha(e.target.value)}/>
                     </FormGroup>
                   </div>
                 }
                 legend={
-                  <Button href="/#/map/mapa-geo" bsStyle="info" fill wd>
+                  <Button onClick={handleLogin} bsStyle="info" fill wd>
                     Entrar
                   </Button>
                 }
@@ -55,7 +64,6 @@ class LoginPage extends Component {
               />
             </form>
     );
-  }
   // render() {
   //   return (
   //     <Grid>

@@ -11,6 +11,14 @@ var routes = [
     layout: '/map',
     name: 'Mapa Geo',
     icon: 'fa fa-map',
+    component: MapaGeo,
+    invisible: true
+  },
+  {
+    path: '/mapa-geo',
+    layout: '/map',
+    name: 'Mapa Geo',
+    icon: 'fa fa-map',
     component: MapaGeo
   },
   {

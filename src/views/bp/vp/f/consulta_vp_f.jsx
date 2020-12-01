@@ -77,18 +77,8 @@ function DataTable_VP_F() {
 
 
 	const [valorCDCRR, setValorCDCRR] = useState([]);  // CDCRR
-	// const [valorFAREM, setValorFAREM] = useState([]);  // FAREM
-	// const [valorGUF, setValorGUF] = useState([]);  // GUF
-	// const [valorLOCZO, setValorLOCZO] = useState([]);  // LOCZO
-	// const [valorMotivo_Versao, setValorMotivo_Versao] = useState([]);  // Motivo_Versao
 	const [valorRESLC, setValorRESLC] = useState([]);  // RESLC
-	// const [valorRVIPD, setValorRVIPD] = useState([]);  // RVIPD
-	// const [valorSNNID, setValorSNNID] = useState([]);  // SNNID
-	// const [valorTIPES, setValorTIPES] = useState([]);  // TIPES
-	// const [valorTPCOB, setValorTPCOB] = useState([]);  // TPCOB
 	const [valorTPIVS, setValorTPIVS] = useState([]);  // TPIVS
-	// const [valorTPPOC, setValorTPPOC] = useState([]);  // TPPOC
-	// const [valorTPVAC, setValorTPVAC] = useState([]);  // TPVAC
 	const [valorRESID, setValorRESID] = useState([]);  // RESID
 
 
@@ -99,13 +89,13 @@ function DataTable_VP_F() {
 
 		}).then(response => {
 
-    const dominioCDCRR =  response.data.filter(dom => dom.dominio === 'CDCRR')
+    const dominioCDCRR =  response.data.filter(dom => dom.dominio === 'CDCRR');
 	  setValorCDCRR(JSON.parse(dominioCDCRR.map(dom => dom.conteudo)));
-    const dominioRESLC =  response.data.filter(dom => dom.dominio === 'RESLC')
+    const dominioRESLC =  response.data.filter(dom => dom.dominio === 'RESLC');
 	  setValorRESLC(JSON.parse(dominioRESLC.map(dom => dom.conteudo)));
-    const dominioRESID =  response.data.filter(dom => dom.dominio === 'RESID')
+    const dominioRESID =  response.data.filter(dom => dom.dominio === 'RESID');
 	  setValorRESID(JSON.parse(dominioRESID.map(dom => dom.conteudo)));
-    const dominioTPIVS =  response.data.filter(dom => dom.dominio === 'TPIVS')
+    const dominioTPIVS =  response.data.filter(dom => dom.dominio === 'TPIVS');
 	  setValorTPIVS(JSON.parse(dominioTPIVS.map(dom => dom.conteudo)));
     })
     // eslint-disable-next-line

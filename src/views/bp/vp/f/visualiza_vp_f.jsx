@@ -2,6 +2,7 @@ import React, { useState,  useLayoutEffect } from 'react';
 import api from '../../../../services/api';
 import {useParams} from 'react-router';
 import { Link, useHistory } from 'react-router-dom';
+import moment from 'moment'
 // import MapOutlinedIcon from '@material-ui/icons/MapOutlined';
 // import { styles } from '../../../../variables/MaterialTable';
 
@@ -84,7 +85,7 @@ function Visualiza_vp_f() {
 
 	setValorBP(response.data.BP);
 	// setValorIncorporacao(response.data.Incorporacao);
-	setValorInicioValidade(response.data.InicioValidade);
+	setValorInicioValidade(moment(response.data.InicioValidade).format('DD/MM/YYYY'));
 	setValorFimValidade(response.data.FimValidade);
 	// setValorNumFicha(response.data.NumFicha);
 	// setValorLogin(response.data.Login);
@@ -140,7 +141,12 @@ function Visualiza_vp_f() {
 
     const history = useHistory();
 
-    // var perfilUsuario = false
+    const usuario = sessionStorage.getItem('@sispatgeo-app/usuario');
+
+    var perfilUsuario = true
+
+    if (usuario === 'admin') perfilUsuario = false
+
 
     const routeEditar = () =>{
       let path = `/admin/bp/vp/f/cadastro/${idBem2}/${IDVersao}`;
@@ -633,7 +639,7 @@ function Visualiza_vp_f() {
             </Tab.Content>
           </div>
         </Tab.Container>
-        <Button bsStyle="primary" pullRight fill  onClick={routeEditar}>
+        <Button disabled={perfilUsuario} bsStyle="primary" pullRight fill  onClick={routeEditar}>
           Editar
         </Button>
         <Button bsStyle="primary" pullRight fill  onClick={routeMapaGeo}>
