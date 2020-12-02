@@ -243,7 +243,7 @@ function GoogleMaps() {
     }
 
 
-    var infowindow = new window.google.maps.InfoWindow({
+    let infowindow = new window.google.maps.InfoWindow({
       content: " "
     });
 
@@ -435,26 +435,50 @@ function GoogleMaps() {
     });
     window.google.maps.event.trigger('click');
 
+    // let infoWindow = new window.google.maps.InfoWindow({
+    //   content: "Click the map to get Lat/Lng!",
+    //   position: { lat: -22.8059377, lng: -43.3884751 },
+    // });
+    // infoWindow.open(map);
+
     geojesonLayerOcup_via_publica.addListener('click', ev => {
       var f = ev.feature;
       var trecho = f.getProperty('TRECHO');
       var ficha = f.getProperty('N_FICHA');
       var kminicial = f.getProperty('KM_INICIAL');
-      var position = getPosition(f);
-
-      infowindow.setContent(`<div>
-                            <h5><b>Tipo da Ocupação: </b>Via Pública</h5>
-                            <b>Trecho: </b>${trecho}</br>
-                            <b>Número da Ficha: </b>${ficha}
-                            <br/><b>KM Inicial: </b>${kminicial}
-                            </div>
-                            <b float:right><a href="#/admin/bp/vp/f/visualiza/${ficha}" style="float:right">Ver Ficha</a></b></br>
-                            `);
-      infowindow.setPosition(position);
-      infowindow.setOptions({
-        pixelOffset: new window.google.maps.Size(0, -10)
+      // var position = getPosition(f);
+      infowindow.close();
+      infowindow = new window.google.maps.InfoWindow({
+        position: ev.latLng,
       });
+      infowindow.setContent(
+        // JSON.stringify(ev.latLng.toJSON(), null, 2)
+                          `<div>
+                             <h5><b>Tipo da Ocupação: </b>Via Pública</h5>
+                             <b>Trecho: </b>${trecho}</br>
+                             <b>Número da Ficha: </b>${ficha}
+                             <br/><b>KM Inicial: </b>${kminicial}
+                             </div>
+                             <b float:right><a href="#/admin/bp/vp/f/visualiza/${ficha}" style="float:right">Ver Ficha</a></b></br>
+                          `
+      );
       infowindow.open(map);
+
+      // infowindow.setContent(`<div>
+      //                       <h5><b>Tipo da Ocupação: </b>Via Pública</h5>
+      //                       <b>Trecho: </b>${trecho}</br>
+      //                       <b>Número da Ficha: </b>${ficha}
+      //                       <br/><b>KM Inicial: </b>${kminicial}
+
+      //                       </div>
+      //                       <b float:right><a href="#/admin/bp/vp/f/visualiza/${ficha}" style="float:right">Ver Ficha</a></b></br>
+      //                       `);
+      // infowindow.setPosition(position);
+      // infowindow.setOptions({
+      //   pixelOffset: new window.google.maps.Size(0, -10)
+      // });
+
+      // infowindow.open(map);
     });
     window.google.maps.event.trigger('click');
 
@@ -786,7 +810,7 @@ function GoogleMaps() {
         var ficha = f.getProperty('N_FICHA');
         var kminicial = f.getProperty('KM_INICIAL');
         var position = getPosition(f);
-
+        infowindow.close();
         infowindow.setContent(`<div>
                               <h5><b>Tipo da Ocupação: </b>Via Pública</h5>
                               <b>Trecho: </b>${trecho}</br>
@@ -800,6 +824,21 @@ function GoogleMaps() {
           pixelOffset: new window.google.maps.Size(0, -10)
         });
         infowindow.open(map);
+        // infowindow = new window.google.maps.InfoWindow({
+        //   position: event.latLng,
+        // });
+        // infowindow.setContent(
+        //   // JSON.stringify(ev.latLng.toJSON(), null, 2)
+        //                     `<div>
+        //                        <h5><b>Tipo da Ocupação: </b>Via Pública</h5>
+        //                        <b>Trecho: </b>${trecho}</br>
+        //                        <b>Número da Ficha: </b>${ficha}
+        //                        <br/><b>KM Inicial: </b>${kminicial}
+        //                        </div>
+        //                        <b float:right><a href="#/admin/bp/vp/f/visualiza/${ficha}" style="float:right">Ver Ficha</a></b></br>
+        //                     `
+        // );
+        // infowindow.open(map);
       }
     });
 

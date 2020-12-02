@@ -4,7 +4,6 @@ import DataTable_VP_F from './views/bp/vp/f/consulta_vp_f';
 import Cadastro_VP_F from './views/bp/vp/f/cadastro_vp_f';
 import Visualiza_VP_F from './views/bp/vp/f/visualiza_vp_f';
 
-
 var routes = [
   {
     path: '/mapa-geo/:idBem2/:tipoInvasao',
@@ -26,7 +25,7 @@ var routes = [
     path: '/imoveis',
     name: 'Faixa de Domínio',
     state: 'imoveis',
-    icon: 'fa fa-bacon',
+    icon: 'fa fa-tasks',
     views: [
       {
         path: '/bp/vp/f/consulta',
